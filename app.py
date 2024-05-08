@@ -121,8 +121,7 @@ if __name__ == '__main__':
 			print(e.message)
 		else:
 			print(e)
-	# Run Flask di localhost 
-	run_with_ngrok(app)
+
 	
 
 
