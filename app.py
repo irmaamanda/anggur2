@@ -114,7 +114,11 @@ if __name__ == '__main__':
 	try:
 		model = make_model()
 		model.load_weights("model_anggur_cnn_tf.h5")
-		
+
+		if model is None:
+			print("Failed to load model")
+			sys.exit()
+			
 		run_with_ngrok(app)
 	except Exception as e:
 		if hasattr(e, 'message'):
