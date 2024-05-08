@@ -110,15 +110,19 @@ app.run(port=port_no)
 
 if __name__ == '__main__':
 	try:
-		model = make_model()
-		model.load_weights("model_anggur_cnn_tf.h5")
-
 		if model is None:
 			print("Failed to load model")
 			sys.exit()
 			
+		ngrok.set_auth_token("2gAdupsWn3rtL4F5vClmdcJ5pAS_7E786wme7iAxZ4e8ys1bm")
+		port_no = 5000
+		public_url =  ngrok.connect(port_no).public_url
 		
+		print(f"To acces the Gloable link please click {public_url}")
 		run_with_ngrok(app)
+		
+		app.run(port=port_no)
+		
 	except Exception as e:
 		if hasattr(e, 'message'):
 			print(e.message)
