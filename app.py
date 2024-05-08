@@ -117,8 +117,8 @@ if __name__ == '__main__':
 		port_no = 5000
 		public_url =  ngrok.connect(port_no).public_url
 		
-		run_with_ngrok(app)
 		print(f"To acces the Gloable link please click {public_url}")
+		run_with_ngrok(app)
 		
 		app.run(port=port_no)
 		
