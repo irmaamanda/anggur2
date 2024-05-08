@@ -121,6 +121,7 @@ if __name__ == '__main__':
 			print(e.message)
 		else:
 			print(e)
+		sys.exit()
 
 	
 
