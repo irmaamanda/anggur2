@@ -110,7 +110,7 @@ print(f"To acces the Gloable link please click {public_url}")
 
 # =[Main]========================================		
 
-if _name_ == '_main_':
+if __name__ == '__main__':
 	try:
 		model = make_model()
 		model.load_weights("model_anggur_cnn_tf.h5")
