@@ -115,7 +115,9 @@ if __name__ == '__main__':
 	# Load model yang telah ditraining
 	model = make_model()
 	model.load_weights("model_anggur_cnn_tf.h5")
-
+if model is None:
+	print("Failed to load model")
+	sys.exit()
 	# Run Flask di localhost 
 	run_with_ngrok(app)
 	
