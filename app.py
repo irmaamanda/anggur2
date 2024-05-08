@@ -119,7 +119,7 @@ if _name_ == '_main_':
 	except Exception as e:
 		if hasattr(e, 'message'):
 			print(e.message)
-		else
+		else:
 			print(e)
 	# Run Flask di localhost 
 	run_with_ngrok(app)
