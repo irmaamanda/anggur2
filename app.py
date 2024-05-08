@@ -110,14 +110,17 @@ print(f"To acces the Gloable link please click {public_url}")
 
 # =[Main]========================================		
 
-if __name__ == '__main__':
-	
-	# Load model yang telah ditraining
-	model = make_model()
-	model.load_weights("model_anggur_cnn_tf.h5")
-if model is None:
-	print("Failed to load model")
-	sys.exit()
+if _name_ == '_main_':
+	try:
+		model = make_model()
+		model.load_weights("model_anggur_cnn_tf.h5")
+		
+		run_with_ngrok(app)
+	except Exception as e:
+		if hasattr(e, 'message'):
+			print(e.message)
+		else
+			print(e)
 	# Run Flask di localhost 
 	run_with_ngrok(app)
 	
