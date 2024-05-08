@@ -13,7 +13,6 @@ from werkzeug.utils import secure_filename
 import pandas as pd
 import numpy as np
 import os
-import tensorrt
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, \
@@ -24,7 +23,7 @@ import cvnn.layers as complex_layers
 from tensorflow.keras import datasets, layers, models
 from keras.preprocessing.image import ImageDataGenerator
 import cvnn.layers as complex_layers
-import sys
+
 from pyngrok import ngrok
 
 # =[Variabel Global]=============================
@@ -108,23 +107,16 @@ app.run(port=port_no)
 
 print(f"To acces the Gloable link please click {public_url}")
 
-
 # =[Main]========================================		
 
 if __name__ == '__main__':
-	try:
-		if model is None:
-			print("Failed to load model")
-			sys.exit()
-			
-		run_with_ngrok(app)
-		
-	except Exception as e:
-		if hasattr(e, 'message'):
-			print(e.message)
-		else:
-			print(e)
-		sys.exit()
+	
+	# Load model yang telah ditraining
+	model = make_model()
+	model.load_weights("model_anggur_cnn_tf.h5")
+
+	# Run Flask di localhost 
+	run_with_ngrok(app)
 
 	
 
