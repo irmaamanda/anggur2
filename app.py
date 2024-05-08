@@ -101,12 +101,6 @@ def apiDeteksi():
 			})
 
 
-ngrok.set_auth_token("2gAdupsWn3rtL4F5vClmdcJ5pAS_7E786wme7iAxZ4e8ys1bm")
-port_no = 5000
-public_url =  ngrok.connect(port_no).public_url
-app.run(port=port_no)
-
-print(f"To acces the Gloable link please click {public_url}")
 
 # =[Main]========================================		
 
@@ -120,6 +114,14 @@ if __name__ == '__main__':
 			sys.exit()
 			
 		run_with_ngrok(app)
+
+		ngrok.set_auth_token("2gAdupsWn3rtL4F5vClmdcJ5pAS_7E786wme7iAxZ4e8ys1bm")
+		port_no = 5000
+		public_url =  ngrok.connect(port_no).public_url
+
+		print(f"To acces the Gloable link please click {public_url}")
+		app.run(port=port_no)
+		
 	except Exception as e:
 		if hasattr(e, 'message'):
 			print(e.message)
